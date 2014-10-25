@@ -3,4 +3,5 @@
 # (that is the difference between := and =).
 # Why? because someone may have already included more files until
 # this statement will be executed...
+
 SETUP_NAME:=$(lastword $(MAKEFILE_LIST))

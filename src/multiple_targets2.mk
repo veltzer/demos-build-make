@@ -19,11 +19,12 @@
 # modification times of the relevant files and will see that the second target
 # should not be created.
 
-SOURCE=source.file
-TG1=file1.junk
-TG2=file2.junk
-TG3=file3.junk
-TG4=file4.junk
+# using the makefile itself as the source
+SOURCE=$(lastword $(MAKEFILE_LIST))
+TG1=/tmp/file1.junk
+TG2=/tmp/file2.junk
+TG3=/tmp/file3.junk
+TG4=/tmp/file4.junk
 
 .PHONY: all
 all: $(TG1) $(TG2) $(TG3) $(TG4)
