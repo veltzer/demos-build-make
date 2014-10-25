@@ -15,12 +15,15 @@ DEFINED_AND_EMPTY:=
 #$(call check-var-defined,DEFINED_AND_EMPTY)
 
 ifeq ($(call is-var-defined,DEFINED_AND_EMPTY),1)
-	GOT_THERE=1
+$(info var DEFINED_AND_EMPTY is defined)
+endif
+
+ifneq ($(call is-var-defined,NOT_DEFINED),1)
+$(info var NOT_DEFINED is not defined)
 endif
 
 .PHONY: all
 all:
-	$(info GOT_THERE is $(GOT_THERE))
 	$(info is-var-defined-simple(DEFINED_AND_NOT_EMPTY) is $(call is-var-defined-simple,DEFINED_AND_NOT_EMPTY))
 	$(info is-var-defined-simple(DEFINED_AND_EMPTY) is $(call is-var-defined-simple,DEFINED_AND_EMPTY))
 	$(info is-var-defined-simple(NOT_DEFINED) is $(call is-var-defined-simple,NOT_DEFINED))
