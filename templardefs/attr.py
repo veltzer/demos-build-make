@@ -45,6 +45,11 @@ class Attr(object):
 		# ini files
 		cls.read_full_ini('~/.details.ini')
 
+		# project
+		if os.path.isfile('project.ini'):
+			cls.read_full_ini('project.ini')
+		cls.project_name=os.path.basename(os.getcwd())
+
 		# git
 		try:
 			cls.git_describe=subprocess.check_output(['git', 'describe'], stderr=subprocess.DEVNULL).decode().rstrip()
