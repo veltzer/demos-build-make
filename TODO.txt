@@ -1,2 +1,6 @@
-Write a makefile that shows how to relate to all the targets
-of a specific makefile rule...
+- write a makefile that shows how to relate to all the targets
+of a specific makefile rule. Still havent found a way to do that.
+	for instance, if I write:
+	a b: c
+		[commands]
+	how do I relate to BOTH a and b from the commands?
