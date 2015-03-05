@@ -1,4 +1,4 @@
-# This makefile shows how to show all variables
+# This makefile shows how to show all make variables
 # note that since make incorporates environment variables
 # then you will see all environment variables as well.
 
@@ -6,6 +6,6 @@
 all:
 	$(info .VARIABLES is $(.VARIABLES))
 
-.PHONY: each
-each:
+.PHONY: all_values
+all_values:
 	$(foreach v, $(.VARIABLES), $(info $(v) = $($(v))))
