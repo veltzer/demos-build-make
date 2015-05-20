@@ -14,6 +14,8 @@ for many more lines...
 ifeq (0,1)
 This is also a multi line
 comment since it will never be executed
+else this will cause a problem
+$(func 4)
 endif
 
 .PHONY: all
