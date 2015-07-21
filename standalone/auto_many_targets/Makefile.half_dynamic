@@ -1,0 +1,13 @@
+.PHONEY: all
+all: p1.out p2.out p3.out
+
+p1.out: $(shell find p1 -type f)
+	touch p1.out
+p2.out: $(shell find p2 -type f)
+	touch p2.out
+p3.out: $(shell find p3 -type f)
+	touch p3.out
+
+.PHONEY: clean
+clean:
+	rm -f *.out

@@ -1,0 +1,17 @@
+TARGETS:=p1 p2 p3
+OUTS:=$(addsuffix .out, $(TARGETS))
+
+.PHONEY: all
+all: $(OUTS)
+
+$(OUTS): %.out: $(shell find $(notdir $@) -type f)
+	touch $@ # $<
+
+.PHONEY: clean
+clean:
+	rm -f *.out
+
+.PHONEY: debug
+debug:
+	$(info TARGETS is $(TARGETS))
+	$(info OUTS is $(OUTS))

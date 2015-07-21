@@ -1,4 +1,7 @@
-# this makefile shows how to define a piece of code to be executed multiple times
+# This makefile shows how to define a piece of code to be executed multiple times
+#
+# References:
+# https://www.gnu.org/software/make/manual/html_node/Eval-Function.html
 
 #.SECONDEXPANSION:
 
@@ -14,8 +17,10 @@ define template
 	ALL_OBJS+=$$(OTHERS_$(1))
 endef
 
+# warning! no comma is allowed after the first argument in the 'call' function call below!
 $(foreach name,$(NAMES),$(eval $(call template,$(name))))
 
+.PHONY: all
 all:
 	@echo "REP_A is $(REP_A)"
 	@echo "REP_B is $(REP_B)"
@@ -25,6 +30,7 @@ all:
 	@echo "OTHERS_B is $(OTHERS_B)"
 	@echo "ALL_OBJS is $(ALL_OBJS)"
 
+.PHONY: debug
 debug:
 	$(foreach name,$(NAMES),$(info OBJECTS_$(name) is $(OBJECTS_$(name))))
 	@echo "ALL_OBJS is $(ALL_OBJS)"

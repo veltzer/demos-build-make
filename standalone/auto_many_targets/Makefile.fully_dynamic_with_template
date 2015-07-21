@@ -1,0 +1,24 @@
+NAMES:=p1 p2 p3
+OUTS:=$(addsuffix .out, $(NAMES))
+
+.PHONY: all
+all: $(OUTS)
+
+define template
+PREREQ_$(1):=$$(shell find $(1) -type f)
+$(1).out: $$(PREREQ_$(1))
+	cat $$(PREREQ_$(1)) > $$@
+endef
+
+# warning! no space is allowed after the command in the call function below
+$(foreach name, $(NAMES), $(eval $(call template,$(name))))
+
+.PHONY: clean
+clean:
+	rm -f *.out
+
+.PHONY: debug
+debug:
+	$(info NAMES is $(NAMES))
+	$(info OUTS is $(OUTS))
+	$(foreach name,$(NAMES),$(info PREREQ_$(name) is $(PREREQ_$(name))))

@@ -1,0 +1,13 @@
+.PHONEY: all
+all: p1.out p2.out p3.out
+
+p1.out: p1/prereq1.src p1/prereq2.src p1/prereq3.src
+	touch p1.out
+p2.out: p2/prereq1.src p2/prereq2.src p2/prereq3.src
+	touch p2.out
+p3.out: p3/prereq1.src p3/prereq2.src p3/prereq3.src
+	touch p3.out
+
+.PHONEY: clean
+clean:
+	rm -f *.out
