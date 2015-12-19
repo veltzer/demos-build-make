@@ -6,6 +6,10 @@ __pycache__
 
 # output files
 *.out
+*.o
+*.so
+*.d
+*.elf
 
 # templar generated
 /.tdefs.config

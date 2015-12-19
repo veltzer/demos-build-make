@@ -16,7 +16,6 @@
  * along with linuxapi. If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include <firstinclude.h>
 #include "libadd/add.h"
 
 int add(int a,int b) {
