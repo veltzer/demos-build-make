@@ -1,7 +1,9 @@
 # this example explores the order in a makefile
 # the conclusion is that if you use a variable
 # and then write a rule for it, then further changes
-# to the variable will not affect the rule.
+# to the variable will not affect the rule *unless*
+# you write the rule again *without a recipee*.
+# (see below)
 # it does not matter if the variable is defined with
 # ':=' or '='.
 # the weird this is that you can add dependencies to targets
@@ -27,3 +29,7 @@ clean:
 
 /tmp/%.stamp:
 	touch $@
+
+.PHONY: debug
+debug:
+	$(info ALL is $(ALL))
