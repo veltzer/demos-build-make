@@ -5,6 +5,7 @@
 #   	but rather want to leave the interpretation of the variable to the shell
 #   	which will be run.
 # - how to use them in non rule contexts ?
+#	just use them as regular variables.
 #
 #	Mark Veltzer
 
@@ -12,8 +13,10 @@
 env_in_rule:
 	@echo $$PWD
 
-MY_PWD=$(PWD)
+MY_PWD1:=$(PWD)
+MY_PWD2=$(PWD)
 
 .PHONY: env_in_body
 env_in_body:
-	@echo $(MY_PWD)
+	@echo $(MY_PWD1)
+	@echo $(MY_PWD2)
