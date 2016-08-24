@@ -3,8 +3,10 @@
 # you don't have to put the .DEFAULT_GOAL at the beinging of the
 # makefile. Maybe a more logical place would be right before
 # the target which is really the default goal...
+# Note that it doesnt matter if you assign .DEFAULT_GOAL using
+# '=' or ':='. They both seem to work.
 
-.DEFAULT_GOAL=all
+.DEFAULT_GOAL:=all
 
 .PHONY: echo
 echo:
