@@ -9,3 +9,4 @@ of a specific makefile rule. Still havent found a way to do that.
 	How do I relate to "b c"? "$<" only refers to b.
 - create a latex book or other book from all of this content to explain
 	how make(1) works.
+- do example about the difference between '=' and ':=' in make(1)
