@@ -1,14 +1,18 @@
-SOURCES:=$(shell find . -name "*.c" | tr " " "\\ ")
-SOURCES:=$(shell cat list.txt)
-OBJECTS:=$(addsuffix .o,$(basename $(SOURCES)))
+SOURCES:=$(shell find . -name "*.c" | sed 's/ /\\ /g')
+OBJECTS:=$(SOURCES:.c=.o)
 
-PROG:=main
+PROG:=main.elf
 
 .PHONY: all
 all: $(PROG)
 
 $(PROG): $(OBJECTS)
-	gcc -o $@ $<
+	$(CC) -o $@ $(OBJECTS)
+
+this\ is\ main.o: this\ is\ main.c
+	$(CC) -c -o "$@" "$<"
+now\ this\ is\ weird.o: now\ this\ is\ weird.c
+	$(CC) -c -o "$@" "$<"
 
 .PHONY: clean
 clean:
