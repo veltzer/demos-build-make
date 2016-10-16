@@ -4,3 +4,8 @@ of a specific makefile rule. Still havent found a way to do that.
 	a b: c
 		[commands]
 	how do I relate to BOTH a and b from the commands?
+- write how to refer to all the things on the right hand side of a rule
+	a: b c
+	How do I relate to "b c"? "$<" only refers to b.
+- create a latex book or other book from all of this content to explain
+	how make(1) works.
