@@ -15,3 +15,8 @@ Conclusions:
 	This means you have to write templates for each and every source file!
 - when looking for source files using $(shell find ...) you cannot use tr(1) to transform spaces into escaped
 	spaces since tr(1) only translates one character into a single character. Use sed(1) instead.
+- $(foreach ...) does not respect space escapes (\ ). You have to do tricks in order to make
+	it work.
+	The trick used here is convert all spaces to + signs before $(foreach ...) and then
+	convert back when activating a piece of code on each of the elements iterated
+	by $(foreach ...)
