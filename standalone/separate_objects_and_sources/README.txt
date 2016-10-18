@@ -11,3 +11,8 @@ This all means that we need to manually create the folder where the
 object files will be just in case.
 mkdir -p $(dir $@)
 will do the trick.
+
+- we use a generalized rule. if a source file is src/.../.../.../foo.cc
+then it's object file will be obj/src/.../.../.../foo.o
+This enable us with a very short set of rules to handle multi-leveled
+large projects.
