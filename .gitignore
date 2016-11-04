@@ -13,3 +13,4 @@ __pycache__
 
 # templar generated
 /.tdefs.config
+/tools.stamp
