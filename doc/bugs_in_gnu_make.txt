@@ -1,0 +1,4 @@
+There is no way to turn warnings into errors into gnu make.
+This means that if you want to make sure that make does not emit
+any warnings to have to capture it's output and parse it for warning
+messages which is quite ugly.
