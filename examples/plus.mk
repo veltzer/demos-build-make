@@ -25,10 +25,10 @@ all: with_plus without_plus
 with_plus:
 	$(info doing [$@])
 	@+/bin/echo hi
-	@/bin/echo $(MAKE) 
+	@/bin/echo $(MAKE)
 
 .PHONY: without_plus
 without_plus:
 	$(info doing [$@])
 	@/bin/echo hi
-	@/bin/echo $(MAKE) 
+	@/bin/echo $(MAKE)

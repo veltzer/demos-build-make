@@ -7,4 +7,4 @@ pathsearch = $(firstword $(wildcard $(addsuffix /$(1),$(subst :, ,$(PATH)))))
 all:
 	@echo $(call pathsearch,ls)
 	@echo $(call pathsearch,wx-config)
-	@echo $(call pathsearch,wx-con)
+	@echo $(call pathsearch,no-such-executable)

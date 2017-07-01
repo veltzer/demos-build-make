@@ -9,7 +9,7 @@
 # does not work either as the 'last_minus_does_not_work' example shows.
 # So what do we do? we force the last component to return true using the shell
 # built in 'exit'. Look at the 'exit_solution' example.
-# 
+#
 # NOTE:
 # On the command line this will not work since the 'exit 0' will cause the
 # entire shell to terminate. In make that is OK since it terminates the shell

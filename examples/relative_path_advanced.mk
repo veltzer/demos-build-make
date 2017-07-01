@@ -13,9 +13,9 @@ FindParentDir2=$(if $(or $(patsubst $(3)/%,,$(1)), $(patsubst $(3)/%,,$(2))), $(
 
 FindParentDir=$(call FindParentDir2,$(1),$(2),$(1))
 
-# how to make a variable with a space, courtesy of John Graham-Cumming 
+# how to make a variable with a space, courtesy of John Graham-Cumming
 # http://blog.jgc.org/2007/06/escaping-comma-and-space-in-gnu-make.html
-space:= 
+space:=
 space+=
 
 # dir1 relative to dir2 (dir1 and dir2 must be absolute paths)

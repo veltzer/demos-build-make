@@ -4,7 +4,7 @@
 # upon are not yet defined you get an empty value
 # - using '=' remembers the definition and interprets it when the variable is needed.
 # - doing += on the variable does not change its type which is determined on whether
-# you used ':=' or '=' to define it. 
+# you used ':=' or '=' to define it.
 
 A=$(CONSTANT_EQ)
 B:=$(CONSTANT_EQ)
