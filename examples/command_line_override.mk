@@ -13,6 +13,9 @@
 # in this case only the variable with the question mark got the value.
 # so the question mark is only relevant to environment variables
 # while variables on the make command line always have effect.
+#
+# in addition note that every environment variable becomes a make
+# variable (see the PATH, USER and HOME variables below)
 
 VAR_QUESTION?=var_question_orig_value
 VAR_COLON:=var_colon
@@ -23,3 +26,6 @@ all:
 	$(info VAR_QUESTION is $(VAR_QUESTION))
 	$(info VAR_COLON is $(VAR_COLON))
 	$(info VAR_EQUALS is $(VAR_EQUALS))
+	$(info $(PATH))
+	$(info $(USER))
+	$(info $(HOME))
