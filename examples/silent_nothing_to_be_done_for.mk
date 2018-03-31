@@ -11,10 +11,10 @@
 .PHONY: problem
 problem:
 
-# the best solution, but since ':' is rarely understood by people
-# I would go with the next one
+# the best solution performance wise
+# A caveat is that ':' is rarely understood by people.
 # no message from make
-# ':' is a load overhead, shell-builtin, returns ok status code
+# ':' is the most low overhead, shell-builtin, returns ok status code
 # the '@' is to not show the command being executed
 .PHONY: solution1
 solution1:
