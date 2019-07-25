@@ -11,8 +11,4 @@ __pycache__
 *.d
 *.elf
 
-# templar generated
-/.tdefs.config
-/tools.stamp
-
 /.pydmt
