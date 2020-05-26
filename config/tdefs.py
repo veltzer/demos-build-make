@@ -111,10 +111,9 @@ alt="PayPal - The safer, easier way to pay online!">
 </form>'''.format(d.project_paypal_donate_button_id)
 
     # git
-    # noinspection PyBroadException
     try:
         d.git_describe = subprocess.check_output(['git', 'describe'], stderr=subprocess.DEVNULL).decode().rstrip()
-    except:
+    except subprocess.CalledProcessError:
         d.git_describe = 'no git repository'
 
     # this is wrong for the tag since they may not be alphabetically ordered...
@@ -125,13 +124,12 @@ alt="PayPal - The safer, easier way to pay online!">
     #    d.git_lasttag='no git tag yet'
 
     # this is right
-    # noinspection PyBroadException
     try:
         d.git_lasttag = subprocess.check_output(['git', 'describe', '--abbrev=0', '--tags'],
                                                 stderr=subprocess.DEVNULL).decode().rstrip()
         d.git_describe = subprocess.check_output(['git', 'describe'], stderr=subprocess.DEVNULL).decode().rstrip()
         d.git_version = '.'.join(d.git_describe.split('-'))
-    except:
+    except subprocess.CalledProcessError:
         d.git_lasttag = '0'
         d.git_describe = '0'
         d.git_version = '0'
