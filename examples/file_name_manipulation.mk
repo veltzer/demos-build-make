@@ -1,8 +1,13 @@
 # this is an example of how to remove a folder from a file name
+#
+# References:
+# - https://www.gnu.org/software/make/manual/html_node/File-Name-Functions.html
 
 FILENAME:=foo/bar/zoo.suf
-OTHER:=$(FILENAME:foo/%=%)
+
+PATTERN:=$(FILENAME:foo/bar/%=%)
+NOT_DIR:=$(notdir $(FILENAME))
 
 all:
-	@echo $(FILENAME:foo/%=%)
-	@echo $(OTHER)
+	@echo $(PATTERN)
+	@echo $(NOT_DIR)
