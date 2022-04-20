@@ -11,4 +11,4 @@ ${config.project.project_long_description}
 
 ${config.project.project_description}
 
-	${user.personal.personal_origin}, ${config.project.project_copyright_years}
+	${user.personal.personal_origin}, ${config.project.project_copyright_years_short}
