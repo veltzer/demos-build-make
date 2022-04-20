@@ -30,23 +30,23 @@ def hlp_source_under(folder):
             packages.append(relative)
             package_dir[relative] = full
     # we use pprint because we want the order to always remain the same
-    return 'packages={0},\npackage_dir={1}'.format(sorted(packages), pprint.pformat(package_dir))
+    return f"packages={sorted(packages)},\npackage_dir={pprint.pformat(package_dir)}"
 
 
 def hlp_files_under(dest_folder, pat):
-    return '(\'{0}\', {1})'.format(dest_folder, [x for x in glob.glob(pat) if os.path.isfile(x)])
+    return f'(\'{dest_folder}\', {[x for x in glob.glob(pat) if os.path.isfile(x)]})'
 
 
 def make_hlp_project_keywords(d):
     def hlp_project_keywords():
-        return '{0}'.format(d.project_keywords.split())
+        return f"{d.project_keywords.split()}"
 
     return hlp_project_keywords
 
 
 def make_hlp_project_platforms(d):
     def hlp_project_platforms():
-        return '{0}'.format(d.project_platforms.split())
+        return f"{d.project_platforms.split()}"
 
     return hlp_project_platforms
 
@@ -55,7 +55,7 @@ def make_hlp_project_classifiers(d):
     def hlp_project_classifiers():
         l = d.project_classifiers.split('\n')
         l = [x.strip()[1:-1] for x in l]
-        return '{0}'.format(l)
+        return f"{l}"
 
     return hlp_project_classifiers
 
@@ -85,30 +85,30 @@ def populate(d):
         if str(d.general_current_year) == d.project_year_started:
             d.project_copyright_years = d.general_current_year
         else:
-            d.project_copyright_years = '{0}-{1}'.format(d.project_year_started, d.general_current_year)
+            d.project_copyright_years = f"{d.project_year_started}-{d.general_current_year}"
     d.current_folder = os.path.basename(os.getcwd())
 
     if 'project_google_analytics_tracking_id' in d:
-        d.project_google_analytics_snipplet = '''<script type="text/javascript">
+        d.project_google_analytics_snipplet = f'''<script type="text/javascript">
 (function(i,s,o,g,r,a,m){{i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){{
 (i[r].q=i[r].q||[]).push(arguments)}},i[r].l=1*new Date();a=s.createElement(o),
 m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
 }})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-ga('create', '{0}', 'auto');
+ga('create', '{d.project_google_analytics_tracking_id}', 'auto');
 ga('send', 'pageview');
 
-</script>'''.format(d.project_google_analytics_tracking_id)
+</script>'''
 
     if 'project_paypal_donate_button_id' in d:
-        d.project_paypal_donate_button_snipplet = '''<form action="https://www.paypal.com/cgi-bin/webscr"
+        d.project_paypal_donate_button_snipplet = f'''<form action="https://www.paypal.com/cgi-bin/webscr"
         method="post" target="_top">
 <input type="hidden" name="cmd" value="_s-xclick">
-<input type="hidden" name="hosted_button_id" value="{0}">
+<input type="hidden" name="hosted_button_id" value="{d.project_paypal_donate_button_id}">
 <input type="image" src="https://www.paypalobjects.com/en_US/IL/i/btn/btn_donateCC_LG.gif" name="submit"
 alt="PayPal - The safer, easier way to pay online!">
 <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
-</form>'''.format(d.project_paypal_donate_button_id)
+</form>'''
 
     # git
     try:
@@ -145,16 +145,16 @@ alt="PayPal - The safer, easier way to pay online!">
     d.apt_codename = subprocess.check_output(['lsb_release', '--codename', '--short']).decode().rstrip()
     d.apt_arch = subprocess.check_output('dpkg-architecture | grep -e ^DEB_BUILD_ARCH= | cut -d = -f 2',
                                          shell=True).decode().rstrip()
-    d.apt_archs = '{0} source'.format(d.apt_arch)
+    d.apt_archs = f'{d.apt_arch} source'
     d.apt_component = 'main'
     d.apt_folder = 'apt'
     d.apt_service_dir = os.path.join(d.general_homedir, 'public_html/public', d.apt_folder)
-    d.apt_except = '50{0}'.format(d.personal_slug)
+    d.apt_except = f'50{d.personal_slug}'
     d.apt_pack_list = glob.glob(os.path.join(d.general_homedir, 'packages', '*.deb'))
     d.apt_packlist = ' '.join(d.apt_pack_list)
     d.apt_id = subprocess.check_output(['lsb_release', '--id', '--short']).decode().rstrip()
     d.apt_keyfile = 'public_key.gpg'
-    d.apt_apache_site_file = '{0}.apt'.format(d.personal_slug)
+    d.apt_apache_site_file = f'{d.personal_slug}.apt'
 
     # helper functions
     d.hlp_source_under = hlp_source_under
@@ -165,7 +165,7 @@ alt="PayPal - The safer, easier way to pay online!">
     d.make_hlp_wrap = make_hlp_wrap
 
     # composites
-    d.deb_version = '{0}~{1}'.format(d.git_version, d.apt_codename)
+    d.deb_version = f'{d_git_version}~{d.apt_codename}'
 
 
 def get_deps():
