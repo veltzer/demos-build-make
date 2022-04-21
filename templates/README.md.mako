@@ -1,11 +1,12 @@
 <%!
     import config.project
     import user.personal
+    import config.version
     import config.git
 %>${config.project.project_name}
 ${'=' * len(config.project.project_name)}
 
-version: ${config.git.last_tag}
+version: ${config.version.version_str}
 
 ${config.project.project_long_description}
 
