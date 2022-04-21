@@ -1,7 +1,7 @@
 demos-make
 ==========
 
-version: NONE
+version: 0.0.1
 
 Demos for GNU make
 

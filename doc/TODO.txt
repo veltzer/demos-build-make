@@ -1,5 +1,7 @@
-- write a makefile that shows how to relate to all the targets
-of a specific makefile rule. Still havent found a way to do that.
+more examples to do:
+====================
+- write another example that shows how to relate to all the targets
+	of a specific makefile rule. Still havent found a way to do that.
 	for instance, if I write:
 	a b: c
 		[commands]
@@ -10,3 +12,7 @@ of a specific makefile rule. Still havent found a way to do that.
 - create a latex book or other book from all of this content to explain
 	how make(1) works.
 - do example about the difference between '=' and ':=' in make(1)
+
+entire proejct todo:
+====================
+- write a makefile for this project which checks all the makefiles.
