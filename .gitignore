@@ -15,4 +15,4 @@ __pycache__
 
 /.venv
 
-/*.stamp
+*.stamp
