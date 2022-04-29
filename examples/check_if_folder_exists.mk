@@ -6,8 +6,8 @@ ifeq ($(call check-have-folder,/var),1)
 $(info folder /var exists)
 endif
 
-ifneq ($(call check-have-folder,/variable),1)
-$(info folder /variable doesnt exist)
+ifneq ($(call check-have-folder,/dontexist),1)
+$(info folder /dontexist doesnt exist)
 endif
 
 .PHONY: all
