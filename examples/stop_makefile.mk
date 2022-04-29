@@ -7,6 +7,7 @@
 #
 # References:
 # - https://www.gnu.org/software/make/manual/html_node/Make-Control-Functions.html#Make-Control-Functions
+# - https://stackoverflow.com/questions/54090238/stop-executing-makefile
 
 $(warning this is my warning message)
 
