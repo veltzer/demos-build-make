@@ -7,7 +7,9 @@ FILENAME:=foo/bar/zoo.suf
 
 PATTERN:=$(FILENAME:foo/bar/%=%)
 NOT_DIR:=$(notdir $(FILENAME))
+BASENAME:=$(basename $(FILENAME))
 
 all:
 	@echo $(PATTERN)
 	@echo $(NOT_DIR)
+	@echo $(BASENAME)
