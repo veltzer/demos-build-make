@@ -2,13 +2,13 @@
     import config.project
     import user.personal
     import config.version
-%>${config.project.project_name}
-${'=' * len(config.project.project_name)}
+%>${config.project.name}
+${'=' * len(config.project.name)}
 
-version: ${config.version.version_str}
+version: ${config.version.str}
 
-${config.project.project_long_description}
+${config.project.description_short}
 
-${config.project.project_description}
+${config.project.long_description}
 
 	${user.personal.personal_origin}, ${config.project.project_copyright_years_short}
