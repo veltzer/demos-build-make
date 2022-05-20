@@ -1,10 +1,15 @@
-demos-make
-==========
+## demos-make
 
 version: 0.0.1
 
-Demos for GNU make
+description: Demos for GNU make
 
-TBD
+website: https://veltzer.github.io/demos-make
 
-	Mark Veltzer <mark.veltzer@gmail.com>, 2010 - 2022
+## build
+
+
+
+chat with me at [![gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/veltzer/mark.veltzer)
+
+Mark Veltzer, Copyright © 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021
