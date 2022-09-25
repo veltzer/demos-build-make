@@ -1,8 +1,8 @@
 # This example shows how make -j works.
 # Try to run this with:
-# - no value to -j
-# - no -j flag at all
-# - other values (1,2,3,...)
+# - no value to -j (this will launch endless parallel jobs)
+# - no -j flag at all (1 job in parallel)
+# - other values (1,2,3,...) (runs maximum the number of jobs you want)
 
 SOURCES:=$(shell find . -type f -and -name "*.mk")
 TARGETS:=$(addsuffix .target, $(SOURCES))
