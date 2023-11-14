@@ -6,12 +6,12 @@ description: Demos for GNU make
 
 website: https://veltzer.github.io/demos-make
 
-## build
+## Build
 
 
 
 
-## contact
+## Contact
 
 chat with me at [![gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/veltzer/mark.veltzer)
 
