@@ -6,8 +6,12 @@
 #   	which will be run.
 # - how to use them in non rule contexts ?
 #	just use them as regular variables.
+# - how to check if an environment variable is defined at all?
+#	just use the "ifdef/ifndef" like below
 #
-#	Mark Veltzer
+# References:
+# - https://stackoverflow.com/questions/8071493/using-ifeq-and-ifndef-in-gnu-make
+# - https://www.gnu.org/software/make/manual/html_node/Conditional-Syntax.html
 
 .PHONY: env_in_rule
 env_in_rule:
@@ -15,6 +19,16 @@ env_in_rule:
 
 MY_PWD1:=$(PWD)
 MY_PWD2=$(PWD)
+
+ifdef GITHUB_WORKFLOW
+$(info yes)
+else
+$(info no)
+endif
+
+ifndef BLA
+$(info yes)
+endif
 
 .PHONY: env_in_body
 env_in_body:
