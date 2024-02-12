@@ -4,6 +4,9 @@
 # ifndef VAR 
 # $(error VAR not set (maybe a shell command failed?))
 # endif
+#
+# References:
+# - https://stackoverflow.com/questions/50817458/how-to-make-gnu-make-fail-if-a-shell-command-assigned-to-a-variable-failed
 
 
 # This is the command that will fail
