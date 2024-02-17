@@ -22,6 +22,10 @@ ifneq ($(call is-var-defined,NOT_DEFINED),1)
 $(info var NOT_DEFINED is not defined)
 endif
 
+ifdef PATH
+$(info PATH is defined)
+endif
+
 .PHONY: all
 all:
 	$(info is-var-defined-simple(DEFINED_AND_NOT_EMPTY) is $(call is-var-defined-simple,DEFINED_AND_NOT_EMPTY))
