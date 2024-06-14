@@ -1,10 +1,10 @@
-## demos-make
+## demos-build-make
 
 version: 0.0.1
 
 description: Demos for GNU make
 
-website: https://veltzer.github.io/demos-make
+website: https://veltzer.github.io/demos-build-make
 
 ## Build
 
