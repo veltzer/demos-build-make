@@ -1,0 +1,22 @@
+# Automatically find all target directories (any directory with .c files)
+NAMES := $(patsubst %/,%,$(dir $(wildcard */)))
+
+# Final executables will be named <directory>_exe
+EXECUTABLES := $(addsuffix .out,$(NAMES))
+
+.PHONY: all
+all: $(EXECUTABLES)
+
+# Rule for each executable
+# $(@:.out=) extracts the target name from the executable name
+%.out: $(wildcard $(@:.out=)/*.src)
+	cat $(wildcard $(@:.out=)/*.src) > $@
+
+.PHONY: clean
+clean:
+	rm -f $(EXECUTABLES)
+
+.PHONY: debug
+debug:
+	$(info "NAMES is $(NAMES)")
+	$(info "EXECUTABLES is $(EXECUTABLES)")
