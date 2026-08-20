@@ -20,15 +20,17 @@
 #
 
 SOURCE=.git/config
-TG1=file1
-TG2=file2
+TG1=out/file1
+TG2=out/file2
+STAMP=out/stamp
 
-stamp: $(SOURCE) 
+$(STAMP): $(SOURCE)
+	mkdir -p out
 	touch $(TG1) # creating target 1
 	touch $(TG2) # creating target 2
 	touch $@ # create the phony stamp file
 
 # these next rules are so you could build targets individually...
 
-$(TG1): stamp
-$(TG2): stamp
+$(TG1): $(STAMP)
+$(TG2): $(STAMP)
