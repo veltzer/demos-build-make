@@ -1,3 +1,5 @@
+# ERROR MAKEFILE
+# (this example fails on purpose; the lint expects "make -n" to fail on it)
 # This is an example of who to stop a makefile
 # the 'error' function exists with the exit code 2.
 # the 'warning' function like the 'info' function do not stop make but rather

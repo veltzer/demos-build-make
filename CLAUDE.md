@@ -26,9 +26,13 @@ Documented in detail in `doc/linting_makefiles.md`:
 ## Build and lint
 
 `rsconstruct build` is the build/lint gate. The `script.make_lint`
-processor in `rsconstruct.local.toml` runs `make -n -f <file>` on every
-`.mk` file in `src.mk/`. Examples that fail a dry run by design (the
-`$(error)` demos, the include fragment with no targets) are listed in
-`src_exclude_files` there, each with a comment saying why. When an example
-fails the lint for an environmental reason, fix the example to follow the
-conventions above rather than adding it to the exclude list.
+processor in `rsconstruct.local.toml` runs `scripts/check_mk.py` on every
+`.mk` file in `src.mk/`, which dry-runs each with `make -n -f <file>`.
+An example whose whole point is to fail (e.g. via `$(error)`) must carry
+the marker comment `# ERROR MAKEFILE`; the script then expects its dry
+run to fail.
+
+Every example passes the lint; there is no exclude list, and none may be
+introduced. When an example fails the lint, fix the example to follow
+the conventions above, or extend `scripts/check_mk.py` if the lint
+itself needs to learn something new.

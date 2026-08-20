@@ -1,3 +1,5 @@
+# ERROR MAKEFILE
+# (this example fails on purpose; the lint expects "make -n" to fail on it)
 # This example shows that ifndef will consider a defined but empty variable as not
 # defined
 

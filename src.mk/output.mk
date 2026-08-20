@@ -1,3 +1,5 @@
+# ERROR MAKEFILE
+# (this example fails on purpose; the lint expects "make -n" to fail on it)
 # This makefile demostrates the $(info XXXX) function
 # The first $(info) is just like echo (only cheeper on runtime and can be used
 #	as a function which is better)

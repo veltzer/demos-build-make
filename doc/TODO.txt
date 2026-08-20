@@ -16,3 +16,8 @@ more examples to do:
 entire proejct todo:
 ====================
 - write a makefile for this project which checks all the makefiles.
+- DONE: empty the make_lint exclude list in rsconstruct.local.toml:
+	every example passes the lint (scripts/check_mk.py). The $(error)
+	demos are handled via the "# ERROR MAKEFILE" marker; the include
+	fragment got a phony target guarded to exist only when it is the
+	main makefile. Keep it that way: no exclude list.
