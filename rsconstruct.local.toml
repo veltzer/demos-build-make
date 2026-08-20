@@ -1,0 +1,20 @@
+# Repo-specific overlay. Deep-merged over the canonical rsconstruct.toml.
+
+# Lint every standalone example makefile with a parse-and-plan dry run.
+# batch = false is required: "-f" takes exactly one makefile, so each file
+# must get its own invocation (make -n -f <file>).
+[processor.script.make_lint]
+command = "make"
+args = ["-n", "-f"]
+batch = false
+src_dirs = ["src.mk"]
+src_extensions = [".mk"]
+src_exclude_files = [
+	# demos whose whole point is to fail via $(error)
+	"ifndef_and_empy_string_vars.mk",
+	"info_warning_error.mk",
+	"output.mk",
+	"stop_makefile.mk",
+	# include fragment with no targets of its own
+	"name_of_included_makefile_include.mk",
+]
