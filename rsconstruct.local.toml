@@ -1,5 +1,10 @@
 # Repo-specific overlay. Deep-merged over the canonical rsconstruct.toml.
 
+# The only Python here is scripts/check_mk.py, which is stdlib-only, so a
+# generated requirements.txt would always be empty - skip generating it.
+[processor.requirements]
+enabled = false
+
 # Lint every standalone example makefile with a parse-and-plan dry run:
 # the script runs "make -n -f <file>" on each file, expecting failure
 # instead of success for files marked with "# ERROR MAKEFILE".
