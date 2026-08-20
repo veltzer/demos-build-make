@@ -120,6 +120,13 @@ repo (`make -f src.mk/<example>.mk`), never from inside `src.mk/`. Any
 relative path inside an example (includes, files it reads or writes) is
 therefore relative to the repo root.
 
+Convention: examples must not leave files at the root of the repo. Any
+file an example creates goes into the gitignored `out/` folder (creating
+it first with `mkdir -p out`, since git does not track the empty folder).
+Beware of `$(shell ...)` in variable assignments: it runs at parse time,
+so it creates its files even under `make -n` — that is, on every lint
+run (see `shell_running.mk`).
+
 Examples that fail under a dry run by design are listed in
 `src_exclude_files` there: the `$(error)` demos, an example that needs a
 `source` file to exist at run time, and an include fragment that has no
