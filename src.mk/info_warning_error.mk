@@ -1,3 +1,5 @@
+# ERROR MAKEFILE
+# (this example fails on purpose; the lint expects "make -n" to fail on it)
 # this example shows how to use the $(info) make function
 # outside of receipes
 

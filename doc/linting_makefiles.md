@@ -106,14 +106,17 @@ Note that this also warns about legitimately undefined built-in variables
 The `src.mk/` folder holds standalone example makefiles, each of which is a
 self-contained demo. The build lints them via the `script.make_lint`
 processor configured in `rsconstruct.local.toml`, which runs
+`scripts/check_mk.py` on every `.mk` file as part of `rsconstruct build`.
+The script runs
 
 ```bash
 make -n -f <file>.mk
 ```
 
-on every `.mk` file as part of `rsconstruct build`. `batch = false` is
-required in that configuration because `-f` takes exactly one makefile per
-invocation.
+and expects it to succeed — unless the makefile carries the marker comment
+`# ERROR MAKEFILE`, which declares a demo whose whole point is to fail
+(e.g. via `$(error)`); for those the script expects the dry run to fail,
+and reports success as a lint error.
 
 Convention: every example in this repository is run from the root of the
 repo (`make -f src.mk/<example>.mk`), never from inside `src.mk/`. Any
@@ -127,10 +130,10 @@ Beware of `$(shell ...)` in variable assignments: it runs at parse time,
 so it creates its files even under `make -n` — that is, on every lint
 run (see `shell_running.mk`).
 
-Examples that fail under a dry run by design are listed in
-`src_exclude_files` there: the `$(error)` demos, an example that needs a
-`source` file to exist at run time, and an include fragment that has no
-targets of its own.
+Every example passes the lint; there is no exclude list. Keep it that
+way: a failing example is fixed to follow the conventions above, or, as
+with the `$(error)` demos and the `# ERROR MAKEFILE` marker, the lint
+(`scripts/check_mk.py`) is taught to handle it — never excluded.
 
 Note that under `-n` recipes are printed rather than executed, so examples
 whose *recipes* fail (such as `fail.mk` and `bad_return_code.mk`) still
