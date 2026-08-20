@@ -22,5 +22,5 @@ all:
 	@echo This is a phony target
 
 # this is even better...
-bar: foo
-	$(call do_cmd,touch bar,making bar from foo,$@)
+out/bar: out/foo
+	$(call do_cmd,touch out/bar,making out/bar from out/foo,$@)
