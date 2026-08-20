@@ -19,11 +19,11 @@
 # me if I'm wrong). This means that you have to use the trick below:
 #
 
-SOURCE=source
+SOURCE=.git/config
 TG1=file1
 TG2=file2
 
-stamp: source
+stamp: $(SOURCE) 
 	touch $(TG1) # creating target 1
 	touch $(TG2) # creating target 2
 	touch $@ # create the phony stamp file
