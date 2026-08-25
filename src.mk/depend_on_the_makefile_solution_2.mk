@@ -29,8 +29,17 @@ clean:
 
 # the solution starts here
 
+# /tmp/dummy is included, which makes it a makefile -- and make always tries
+# to remake its own makefiles before running any goal, including 'clean'.
+# So the sub-make below would itself try to remake /tmp/dummy and re-invoke
+# this same rule, never reaching the 'touch' that would stop it: an infinite
+# recursion whenever /tmp/dummy is missing or older than this makefile, which
+# is exactly the case this solution exists to handle. RECURSED=1 skips the
+# include in the child, so the sub-make does the clean and returns.
+ifndef RECURSED
 -include /tmp/dummy
+endif
 
 /tmp/dummy: $(MY_MAKEFILE_NAME)
-	$(MAKE) --silent -f $(MY_MAKEFILE_NAME) clean
+	$(MAKE) --silent RECURSED=1 -f $(MY_MAKEFILE_NAME) clean
 	touch $@
