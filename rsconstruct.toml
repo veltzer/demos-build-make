@@ -12,10 +12,6 @@ src_dirs = ["scripts"]
 [processor.mypy]
 src_dirs = ["scripts"]
 
-[processor.requirements]
-src_dirs = ["scripts"]
-enabled = false
-
 [processor.taplo]
 src_dirs = ["."]
 
