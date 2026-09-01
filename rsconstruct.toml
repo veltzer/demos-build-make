@@ -1,5 +1,4 @@
-# rsconstruct configuration for this repository — shared defaults plus
-# repo-specific config (merged from the former rsconstruct.local.toml).
+# rsconstruct build configuration for this repository.
 
 [analyzer.python]
 
@@ -15,7 +14,7 @@ src_dirs = ["scripts"]
 [processor.taplo]
 src_dirs = ["."]
 
-# ─── merged from rsconstruct.local.toml ─────────────────────────────────────
+# ─── repo-specific configuration ────────────────────────────────────────────
 
 # Lint every standalone example makefile with a parse-and-plan dry run:
 # the script runs "make -n -f <file>" on each file, expecting failure
