@@ -6,14 +6,14 @@ reject_dot_src_dirs = true
 
 [analyzer.python]
 
-[processor.ruff]
+[processor.checker.ruff]
 src_dirs = ["scripts"]
 
 
-[processor.mypy]
+[processor.checker.mypy]
 src_dirs = ["scripts"]
 
-[processor.taplo]
+[processor.checker.taplo]
 src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 
 # ─── repo-specific configuration ────────────────────────────────────────────
@@ -21,7 +21,7 @@ src_files = [".rumdl.toml", "pyproject.toml", "rsconstruct.toml"]
 # Lint every standalone example makefile with a parse-and-plan dry run:
 # the script runs "make -n -f <file>" on each file, expecting failure
 # instead of success for files marked with "# ERROR MAKEFILE".
-[processor.script.make_lint]
+[processor.checker.script.make_lint]
 command = "scripts/check_mk.py"
 required_tools = ["make"]
 src_dirs = ["src.mk"]
@@ -31,23 +31,23 @@ src_extensions = [".mk"]
 # scripts/check_mk.py if the lint needs to learn something new.
 
 # lint the GitHub Actions workflow files with actionlint
-[processor.actionlint]
+[processor.checker.actionlint]
 src_dirs = [".github/workflows"]
 
 # ─── markdown ────────────────────────────────────────────────────────────────
 
-[processor.rumdl]
+[processor.checker.rumdl]
 src_dirs = ["doc"]
 src_files = ["CLAUDE.md", "README.md"]
 
 # ─── shell ───────────────────────────────────────────────────────────────────
 
-[processor.shellcheck]
+[processor.checker.shellcheck]
 src_dirs = ["standalone"]
 
 # ─── c / c++ ─────────────────────────────────────────────────────────────────
 
-[processor.cppcheck]
+[processor.checker.cppcheck]
 src_dirs = ["standalone"]
 args = [
 	"--error-exitcode=1",
