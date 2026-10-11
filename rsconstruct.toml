@@ -42,7 +42,7 @@ src_files = ["CLAUDE.md", "README.md"]
 
 # ─── shell ───────────────────────────────────────────────────────────────────
 
-[processor.checker.shellcheck]
+[processor.checker.ishellcheck]
 src_dirs = ["standalone"]
 
 # ─── c / c++ ─────────────────────────────────────────────────────────────────
