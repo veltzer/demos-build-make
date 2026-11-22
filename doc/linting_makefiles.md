@@ -29,7 +29,7 @@ Rules can be tuned or disabled via a `checkmake.ini` file. For example, the
 `minphony` rule (which insists on `all`/`clean`/`test` targets) makes little
 sense for small standalone example makefiles and can be turned off.
 
-Project page: https://github.com/checkmake/checkmake
+Project page: <https://github.com/checkmake/checkmake>
 
 ### unmake
 
@@ -53,7 +53,7 @@ It is quite opinionated: good if you want portable POSIX makefiles, but too
 strict for a repository (like this one) that deliberately demonstrates GNU
 make features.
 
-Project page: https://github.com/mcandre/unmake
+Project page: <https://github.com/mcandre/unmake>
 
 ### mbake
 
@@ -73,7 +73,7 @@ bake validate src.mk/*.mk   # lint
 bake format src.mk/*.mk     # auto-format
 ```
 
-Project page: https://github.com/EbodShojaei/bake
+Project page: <https://github.com/EbodShojaei/bake>
 
 ## Using make itself
 
