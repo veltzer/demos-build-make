@@ -56,11 +56,36 @@ src_dirs = ["standalone"]
 
 # ─── c / c++ ─────────────────────────────────────────────────────────────────
 
-[processor.checker.cppcheck]
+# Demos whose whole program lives in one directory: one run per directory.
+[processor.checker.cppcheck.single_dir]
+batch_by_dir = true
 src_dirs = ["standalone"]
+src_exclude_dirs = ["deps_makedepend", "deps_using_gcc"]
 args = [
 	"--error-exitcode=1",
-	"--enable=warning,style,performance,portability",
+	"--enable=warning,style,performance,portability,information,unusedFunction",
+	"--check-level=exhaustive",
+	"--inline-suppr",
+]
+
+# deps_makedepend is one program split over myapp/ and mylib/ (one Makefile builds them together): one run over the whole project.
+[processor.checker.cppcheck.deps_makedepend]
+batch = true
+src_dirs = ["standalone/deps_makedepend"]
+args = [
+	"--error-exitcode=1",
+	"--enable=warning,style,performance,portability,information,unusedFunction",
+	"--check-level=exhaustive",
+	"--inline-suppr",
+]
+
+# deps_using_gcc is one program split over binmain/ and libadd/ (one Makefile builds them together): one run over the whole project.
+[processor.checker.cppcheck.deps_using_gcc]
+batch = true
+src_dirs = ["standalone/deps_using_gcc"]
+args = [
+	"--error-exitcode=1",
+	"--enable=warning,style,performance,portability,information,unusedFunction",
 	"--check-level=exhaustive",
 	"--inline-suppr",
 ]

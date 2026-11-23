@@ -17,9 +17,12 @@
  */
 
 #include <stdio.h> // for printf(3)
-#include <stdlib.h> // for EXIT_SUCCESS
+#include <stdlib.h> // for EXIT_SUCCESS, EXIT_FAILURE
+
+// defined in the other source file, so the two objects really get linked
+int add(int a,int b);
 
 int main(int argc,char** argv,char** envp) {
 	printf("Hello, World!\n");
-	return EXIT_SUCCESS;
+	return add(2,-2)==0 ? EXIT_SUCCESS : EXIT_FAILURE;
 }
