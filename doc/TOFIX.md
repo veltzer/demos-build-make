@@ -6,7 +6,7 @@ Findings from a code scan on 2026-10-04.
 
 - `rsconstruct.toml:21` - the comment says the make_lint processor lints "every standalone example makefile", but `src_dirs = ["src.mk"]` with `src_extensions = [".mk"]` means the 20 `standalone/*/Makefile*` files are never checked; extend `scripts/check_mk.py` to dry-run with `make -n -C <dir> -f <file>` and add those makefiles to the processor (or fix the comment to say only `src.mk/` is linted).
 - `CLAUDE.md:29` - says the `script.make_lint` processor lives in `rsconstruct.local.toml`, which does not exist; it is in `rsconstruct.toml:24`. Same stale reference at `doc/linting_makefiles.md:108` and `doc/TODO.txt:19`.
-- `README.md:7` - the "website" link https://veltzer.github.io/demos-build-make returns 404 (the repo has no `[pages]` section and no docs build); remove the link or add a pages build.
+- `README.md:7` - the "website" link <https://veltzer.github.io/demos-build-make> returns 404 (the repo has no `[pages]` section and no docs build); remove the link or add a pages build.
 
 ## Low
 
