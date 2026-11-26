@@ -98,3 +98,8 @@ args = [
 	"--check-level=exhaustive",
 	"--inline-suppr",
 ]
+
+# every lint suppression names a rule and says why (see the fleet's CLAUDE.md)
+[processor.checker.suppressions]
+src_dirs = [".github", "config", "doc", "scripts", "standalone"]
+src_files = [".yamllint.yaml", "CLAUDE.md", "README.md"]
