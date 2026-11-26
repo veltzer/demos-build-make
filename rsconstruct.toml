@@ -30,6 +30,10 @@ src_extensions = [".mk"]
 # list. Never introduce one - fix failing examples instead, or extend
 # scripts/check_mk.py if the lint needs to learn something new.
 
+# lint the Lua configuration with luacheck (policy: .luacheckrc)
+[processor.checker.iluacheck]
+src_dirs = ["config"]
+
 # lint the YAML files with yamllint (policy: .yamllint.yaml)
 [processor.checker.iyamllint]
 src_dirs = [".github"]
