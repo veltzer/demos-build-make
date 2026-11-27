@@ -6,8 +6,6 @@ description: Demos for GNU make
 
 website: <https://veltzer.github.io/demos-build-make>
 
-## Build
-
 ## Contact
 
 [mailto](mailto:mark.veltzer@gmail.com)
